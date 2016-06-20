@@ -183,8 +183,8 @@ style this element.
      * A handler that is called on input
      */
     _onValueChanged: function(value, oldValue) {
-      // The initial property assignment is handled by `ready`.
-      if (oldValue == undefined || value === oldValue)
+      //Skip duplicate events
+      if (value === oldValue)
         return;
 
       //Ensure value is a string
