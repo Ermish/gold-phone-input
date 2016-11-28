@@ -236,7 +236,8 @@ style this element.
       this.updateValueAndPreserveCaret(formattedValue.trim());
 
       //If oldValue is undefined, there is no caret position yet. 
-      if (oldValue != undefined) {
+        var isSelectionDifferent = this.$.input.selectionStart == (start + dashesDifference);
+        if (oldValue != undefined && !isSelectionDifferent) {
         // Advance or back up the caret based on the change that happened before it.
         this.$.input.selectionStart = this.$.input.selectionEnd = start + dashesDifference;
       }
