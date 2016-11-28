@@ -235,8 +235,11 @@ style this element.
       // cursor to the end of the value. Correctly adjust the caret afterwards.
       this.updateValueAndPreserveCaret(formattedValue.trim());
 
-      // Advance or back up the caret based on the change that happened before it.
-      this.$.input.selectionStart = this.$.input.selectionEnd = start + dashesDifference;
+      //If oldValue is undefined, there is no caret position yet. 
+      if (oldValue != undefined) {
+        // Advance or back up the caret based on the change that happened before it.
+        this.$.input.selectionStart = this.$.input.selectionEnd = start + dashesDifference;
+      }
 
       this._handleAutoValidate();
     },
